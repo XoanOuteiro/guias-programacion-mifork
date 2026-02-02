@@ -24,7 +24,9 @@ Las cuatro características básicas de la programación orientada a objetos son
 
 La abstracción consiste en identificar las características esenciales de un objeto y omitir los detalles irrelevantes. Se centra en el qué hace un objeto y no en cómo lo hace, permitiendo trabajar con conceptos de alto nivel. De este modo, se reduce la complejidad del sistema y se facilita su comprensión y mantenimiento.
 
-La encapsulación implica agrupar los datos y las operaciones que actúan sobre ellos dentro de una misma entidad, llamada clase, y controlar el acceso a dichos datos. Esto evita manipulaciones indebidas desde el exterior y fuerza a interactuar con el objeto mediante interfaces bien definidas. La herencia permite crear nuevas clases a partir de otras ya existentes, reutilizando su comportamiento y añadiendo o modificando funcionalidades, lo que reduce la duplicación de código.
+La encapsulación implica agrupar los datos y las operaciones que actúan sobre ellos dentro de una misma entidad, llamada clase, y controlar el acceso a dichos datos (en el sentido de ocultarlos). Esto evita manipulaciones indebidas desde el exterior y fuerza a interactuar con el objeto mediante interfaces bien definidas. 
+
+La herencia permite crear nuevas clases a partir de otras ya existentes, reutilizando su comportamiento y añadiendo o modificando funcionalidades, lo que reduce la duplicación de código.
 
 El polimorfismo permite que diferentes objetos respondan de manera distinta a una misma operación, siempre que compartan una interfaz común. Esto posibilita escribir código más genérico y flexible, ya que una misma llamada puede tener comportamientos distintos según el tipo concreto del objeto que la recibe.
 ```
@@ -114,7 +116,7 @@ class Punto {
 public class Main {
     public static void main(String[] args) {
         Punto p = new Punto(); // creación de instancia
-        p.x = 3;               // asignación de valores
+        p.x = 3;               // asignación de valores (gnorando encapsulacion (los atributos son publicos))
         p.y = 4;
 
         double distancia = p.calculaDistanciaAOrigen(); // uso del método
