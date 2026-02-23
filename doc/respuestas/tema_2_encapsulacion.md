@@ -14,7 +14,7 @@ Entre las ventajas de la ocultación de información se encuentran: menor acopla
 
 ### Respuesta
 
-La **interfaz pública** de una clase es el conjunto de métodos y atributos accesibles desde el exterior, es decir, todo aquello que otras clases pueden utilizar para interactuar con sus objetos. Constituye el "contrato" que la clase ofrece al resto del programa.
+La **interfaz pública** de una clase es el conjunto de métodos y atributos (o miembros) accesibles desde el exterior, es decir, todo aquello que otras clases pueden utilizar para interactuar con sus objetos. Constituye el "contrato" que la clase ofrece al resto del programa.
 
 La relación con la ocultación de información es directa: todo lo que no forma parte de la interfaz pública queda oculto. Así, los detalles de implementación (cómo se almacenan los datos, qué algoritmos se usan internamente) permanecen invisibles para el exterior, que solo conoce qué puede hacer con el objeto, no cómo lo hace.
 
@@ -34,7 +34,7 @@ Por ello, es fundamental diseñarla con cuidado desde el principio: debe ser lo 
 
 ### Respuesta
 
-Una **invariante de clase** es una condición que debe cumplirse siempre sobre el estado interno de un objeto, independientemente de qué operaciones se hayan realizado sobre él. Por ejemplo, en una clase `Fraccion`, el denominador nunca puede ser cero.
+Una **invariante de clase** es una condición que debe cumplirse siempre sobre el estado interno de un objeto, independientemente de qué operaciones se hayan realizado sobre él (nota: durante toda la vida de la instancia). Por ejemplo, en una clase `Fraccion`, el denominador nunca puede ser cero.
 
 La ocultación de información ayuda a mantener las invariantes porque impide que el código externo modifique los atributos internos de forma arbitraria. Al forzar el acceso a través de métodos controlados, la propia clase puede validar cualquier cambio de estado y rechazar aquellos que violarían sus invariantes.
 
@@ -141,7 +141,7 @@ Sí, los miembros de clase también se pueden ocultar aplicándoles el modificad
 
 Sí, tiene sentido en varios escenarios. El más común es el patrón **Singleton**, donde se desea que solo exista una instancia de la clase: el constructor privado impide que se creen instancias desde fuera, y se proporciona un método estático público que controla la creación.
 
-Otro uso habitual es en combinación con **métodos factoría** (métodos estáticos que construyen y devuelven objetos), donde se quiere ofrecer distintas formas semánticas de crear un objeto sin exponer el constructor directamente.
+Otro uso habitual es en combinación con **métodos factoría** (métodos estáticos que construyen y devuelven objetos)(nota: no lo mismo que el patron de diseño de factorias), donde se quiere ofrecer distintas formas semánticas de crear un objeto sin exponer el constructor directamente.
 
 ---
 
@@ -257,6 +257,8 @@ Una clase es **inmutable** cuando sus objetos, una vez creados, no pueden cambia
 Un **método modificador** es cualquier método que altera el estado interno de un objeto. No todos los métodos modificadores son setters: por ejemplo, un método `mover(double dx, double dy)` en `Punto` modificaría las coordenadas sin ser un setter convencional.
 
 Las clases inmutables tienen varias ventajas: son intrínsecamente seguras en entornos multihilo (no requieren sincronización), son más fáciles de razonar sobre ellas, pueden compartirse libremente sin riesgo de modificaciones inesperadas, y se prestan bien al uso como claves en mapas o elementos en conjuntos.
+
+(nota: diseñar clases inmutables por defecto)
 
 ---
 
